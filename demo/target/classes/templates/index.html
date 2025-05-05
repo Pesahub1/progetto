@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Listino</title></head>
+<body>
+<h1>Lista Listini</h1>
+<a href="/new">Aggiungi Listino</a>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modello</th>
+            <th>Chilometri</th>
+            <th>Prezzo</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="listino : ${listini}">
+            <td th:text="${listino.id}"></td>
+            <td th:text="${listino.marca}"></td>
+            <td th:text="${listino.modello}"></td>
+            <td th:text="${listino.chilometri}"></td>
+            <td th:text="${listino.prezzo}"></td>
+            <td>
+                <a th:href="@{'/edit/' + ${listino.id}}">Modifica</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

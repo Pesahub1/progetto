@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Nuovo Listino</title></head>
+<body>
+<h1 th:text="${listino.id == null} ? 'Nuovo Listino' : 'Modifica Listino'"></h1>
+<form th:action="@{/save}" th:object="${listino}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    Marca: <input type="text" th:field="*{marca}" placeholder="Inserisci la marca" /><br/>
+    Modello: <input type="text" th:field="*{modello}" placeholder="Inserisci il modello" /><br/>
+    Chilometri: <input type="text" th:field="*{chilometri}" placeholder="Inserisci i chilometri" /><br/>
+    Prezzo: <input type="text" th:field="*{prezzo}" placeholder="Inserisci il prezzo" /><br/>
+    <button type="submit">Salva</button>
+</form>
+</body>
+</html>
